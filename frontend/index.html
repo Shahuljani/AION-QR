@@ -90,7 +90,7 @@
                 displayMessage("❌ Invalid Student ID format.");
                 return;
             }
-            fetch(`https://aion-qr.onrender.com/check?student_id=${studentId}`)
+            fetch(`http://localhost:5000/check?student_id=${studentId}`)
                 .then(response => response.json())
                 .then(data => {
                     if (data.error) {
@@ -110,7 +110,7 @@
 
         function redeemItem(item) {
             let studentId = document.getElementById("student-id").innerText;
-            fetch("https://aion-qr.onrender.com/redeem", {
+            fetch("http://localhost:5000/redeem", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ student_id: studentId, item })
